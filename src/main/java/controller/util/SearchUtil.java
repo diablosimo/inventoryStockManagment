@@ -8,6 +8,7 @@ package controller.util;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -23,6 +24,7 @@ public class SearchUtil {
             return null;
         }
     }
+
     public static String convertForPw(Date date) {
         try {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("ddMMyyyy");
@@ -36,6 +38,7 @@ public class SearchUtil {
 
         return new java.sql.Date(date.getTime());
     }
+
     public static java.sql.Date convertdate(java.util.Date date) {
 
         return new java.sql.Date(date.getTime());
@@ -51,15 +54,32 @@ public class SearchUtil {
         }
         return "";
     }
+
     public static String orConstraint(String beanAbrev, String atributeName, String operator, Object value) {
         if (value != null) {
             return " OR " + beanAbrev + "." + atributeName + " " + operator + " '" + value + "'";
         }
         return "";
     }
+
     public static String orConstraintContains(String beanAbrev, String atributeName, String operator, Object value) {
         if (value != null) {
             return " OR " + beanAbrev + "." + atributeName + " " + operator + " '%" + value + "%'";
+        }
+        return "";
+    }
+
+    public static String addConstraintIn(String beanAbrev, String atributeName, List<Object> values) {
+        if (values != null) {
+            if (!values.isEmpty()) {
+                String req = "(";
+                for (int i = 0; i < values.size() - 1; i++) {
+                    Object value = values.get(i);
+                    req += "'" + value + "',";
+                }
+                req += "'" + values.get(values.size() - 1) + "')";
+                return " AND " + beanAbrev + "." + atributeName + " IN " + req;
+            }
         }
         return "";
     }

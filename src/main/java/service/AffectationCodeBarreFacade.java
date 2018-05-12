@@ -27,6 +27,6 @@ public class AffectationCodeBarreFacade extends AbstractFacade<AffectationCodeBa
 
     public AffectationCodeBarreFacade() {
         super(AffectationCodeBarre.class);
-    }
+    } 
     
 }
