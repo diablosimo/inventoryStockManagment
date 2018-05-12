@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RadiationViewDlg" widgetVar="RadiationViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewRadiationTitle}">
+            <h:form id="RadiationViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{radiationController.selected != null}">
+                        <h:outputText value="#{bundle.ViewRadiationLabel_id}"/>
+                        <h:outputText value="#{radiationController.selected.id}" title="#{bundle.ViewRadiationTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewRadiationLabel_ligneInventaire}"/>
+                        <h:outputText value="#{radiationController.selected.ligneInventaire}" title="#{bundle.ViewRadiationTitle_ligneInventaire}"/>
+                        <h:outputText value="#{bundle.ViewRadiationLabel_feuilleRegistreMutation}"/>
+                        <h:outputText value="#{radiationController.selected.feuilleRegistreMutation}" title="#{bundle.ViewRadiationTitle_feuilleRegistreMutation}"/>
+                        <h:outputText value="#{bundle.ViewRadiationLabel_motif}"/>
+                        <h:outputText value="#{radiationController.selected.motif}" title="#{bundle.ViewRadiationTitle_motif}"/>
+                        <h:outputText value="#{bundle.ViewRadiationLabel_nbrObjet}"/>
+                        <h:outputText value="#{radiationController.selected.nbrObjet}" title="#{bundle.ViewRadiationTitle_nbrObjet}"/>
+                        <h:outputText value="#{bundle.ViewRadiationLabel_dateRadiation}"/>
+                        <h:outputText value="#{radiationController.selected.dateRadiation}" title="#{bundle.ViewRadiationTitle_dateRadiation}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewRadiationLabel_etatObjet}"/>
+                        <h:outputText value="#{radiationController.selected.etatObjet}" title="#{bundle.ViewRadiationTitle_etatObjet}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="RadiationViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

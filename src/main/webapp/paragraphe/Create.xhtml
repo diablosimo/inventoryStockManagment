@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ParagrapheCreateDlg" widgetVar="ParagrapheCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateParagrapheTitle}">
+            <h:form id="ParagrapheCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{paragrapheController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateParagrapheLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{paragrapheController.selected.id}" title="#{bundle.CreateParagrapheTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateParagrapheLabel_nom}" for="nom" />
+                        <p:inputText id="nom" value="#{paragrapheController.selected.nom}" title="#{bundle.CreateParagrapheTitle_nom}" />
+                        <p:outputLabel value="#{bundle.CreateParagrapheLabel_description}" for="description" />
+                        <p:inputText id="description" value="#{paragrapheController.selected.description}" title="#{bundle.CreateParagrapheTitle_description}" />
+                        <p:outputLabel value="#{bundle.CreateParagrapheLabel_categorie}" for="categorie" />
+                        <p:selectOneMenu id="categorie" value="#{paragrapheController.selected.categorie}" >
+                            <f:selectItems value="#{categorieController.itemsAvailableSelectOne}"
+                                           var="categorieItem"
+                                           itemValue="#{categorieItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{paragrapheController.create}" value="#{bundle.Save}" update="display,:ParagrapheListForm:datalist,:growl" oncomplete="handleSubmit(args,'ParagrapheCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ParagrapheCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

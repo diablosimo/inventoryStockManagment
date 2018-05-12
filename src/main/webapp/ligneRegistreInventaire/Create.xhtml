@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LigneRegistreInventaireCreateDlg" widgetVar="LigneRegistreInventaireCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateLigneRegistreInventaireTitle}">
+            <h:form id="LigneRegistreInventaireCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ligneRegistreInventaireController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateLigneRegistreInventaireLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{ligneRegistreInventaireController.selected.id}" title="#{bundle.CreateLigneRegistreInventaireTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateLigneRegistreInventaireLabel_numOrdre}" for="numOrdre" />
+                        <p:inputText id="numOrdre" value="#{ligneRegistreInventaireController.selected.numOrdre}" title="#{bundle.CreateLigneRegistreInventaireTitle_numOrdre}" />
+                        <p:outputLabel value="#{bundle.CreateLigneRegistreInventaireLabel_feuilleRegistreMutation}" for="feuilleRegistreMutation" />
+                        <p:selectOneMenu id="feuilleRegistreMutation" value="#{ligneRegistreInventaireController.selected.feuilleRegistreMutation}" >
+                            <f:selectItems value="#{feuilleRegistreMutationController.itemsAvailableSelectOne}"
+                                           var="feuilleRegistreMutationItem"
+                                           itemValue="#{feuilleRegistreMutationItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateLigneRegistreInventaireLabel_provenance}" for="provenance" />
+                        <p:selectOneMenu id="provenance" value="#{ligneRegistreInventaireController.selected.provenance}" >
+                            <f:selectItems value="#{provenanceController.itemsAvailableSelectOne}"
+                                           var="provenanceItem"
+                                           itemValue="#{provenanceItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateLigneRegistreInventaireLabel_dateInscription}" for="dateInscription" />
+                        <p:calendar id="dateInscription" pattern="MM/dd/yyyy" value="#{ligneRegistreInventaireController.selected.dateInscription}" title="#{bundle.EditLigneRegistreInventaireTitle_dateInscription}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateLigneRegistreInventaireLabel_qte}" for="qte" />
+                        <p:inputText id="qte" value="#{ligneRegistreInventaireController.selected.qte}" title="#{bundle.CreateLigneRegistreInventaireTitle_qte}" />
+                        <p:outputLabel value="#{bundle.CreateLigneRegistreInventaireLabel_produit}" for="produit" />
+                        <p:selectOneMenu id="produit" value="#{ligneRegistreInventaireController.selected.produit}" >
+                            <f:selectItems value="#{produitController.itemsAvailableSelectOne}"
+                                           var="produitItem"
+                                           itemValue="#{produitItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateLigneRegistreInventaireLabel_prix}" for="prix" />
+                        <p:inputText id="prix" value="#{ligneRegistreInventaireController.selected.prix}" title="#{bundle.CreateLigneRegistreInventaireTitle_prix}" />
+                        <p:outputLabel value="#{bundle.CreateLigneRegistreInventaireLabel_etatObjet}" for="etatObjet" />
+                        <p:selectOneMenu id="etatObjet" value="#{ligneRegistreInventaireController.selected.etatObjet}" >
+                            <f:selectItems value="#{etatController.itemsAvailableSelectOne}"
+                                           var="etatObjetItem"
+                                           itemValue="#{etatObjetItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateLigneRegistreInventaireLabel_observation}" for="observation" />
+                        <p:inputText id="observation" value="#{ligneRegistreInventaireController.selected.observation}" title="#{bundle.CreateLigneRegistreInventaireTitle_observation}" />
+                        <p:outputLabel value="#{bundle.CreateLigneRegistreInventaireLabel_individu}" for="individu" />
+                        <p:selectOneMenu id="individu" value="#{ligneRegistreInventaireController.selected.individu}" >
+                            <f:selectItems value="#{utilisateurController.itemsAvailableSelectOne}"
+                                           var="individuItem"
+                                           itemValue="#{individuItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateLigneRegistreInventaireLabel_registreInventaire}" for="registreInventaire" />
+                        <p:selectOneMenu id="registreInventaire" value="#{ligneRegistreInventaireController.selected.registreInventaire}" >
+                            <f:selectItems value="#{registreInventaireController.itemsAvailableSelectOne}"
+                                           var="registreInventaireItem"
+                                           itemValue="#{registreInventaireItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{ligneRegistreInventaireController.create}" value="#{bundle.Save}" update="display,:LigneRegistreInventaireListForm:datalist,:growl" oncomplete="handleSubmit(args,'LigneRegistreInventaireCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="LigneRegistreInventaireCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

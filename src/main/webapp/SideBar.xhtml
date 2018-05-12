@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:body>
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <a href="../AdminLTE-3.0.0-alpha/index3.html" class="brand-link bg-warning">
+                <img src="../AdminLTE-3.0.0-alpha/dist/img/rms.ico"
+                     alt="AdminLTE Logo"
+                     class="brand-image img-circle elevation-3"
+                     style="opacity: .8"/>
+                <span class="brand-text font-weight-light">Inventaire RMS</span>
+            </a>
+            <div class="sidebar">
+                <div class="user-panel mt-3 pb-1 mb-2 d-flex">
+                    <div class="image">
+                        <img src="../AdminLTE-3.0.0-alpha/dist/img/1.png" class="img-circle elevation-2" alt="User Image"/>
+                    </div>
+                    <div class="info">
+                        <h:outputLabel class="font-weight-bold thead-light " value="#{utilisateurController.selected.nom}-#{utilisateurController.selected.prenom}"/>
+                    </div>
+                </div>
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-dashboard"></i>
+                                <p>
+                                    Dashboard
+                                    <i class="right fa fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../AdminLTE-3.0.0-alpha/index.html" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>Dashboard v1</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../AdminLTE-3.0.0-alpha/index2.html" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>Dashboard v2</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../AdminLTE-3.0.0-alpha/index3.html" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>Dashboard v3</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../AdminLTE-3.0.0-alpha/widgets.html" class="nav-link">
+                                <i class="nav-icon fa fa-th"></i>
+                                <p>
+                                    Widgets
+                                    <span class="right badge badge-danger">New</span>
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+    </h:body>
+</html>
+

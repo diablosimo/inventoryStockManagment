@@ -38,6 +38,35 @@ public class Reforme implements Serializable {
         this.id = id;
     }
 
+    public String getNumCPS() {
+        return numCPS;
+    }
+
+    public void setNumCPS(String numCPS) {
+        this.numCPS = numCPS;
+    }
+
+    public Radiation getRadiation() {
+        if(radiation==null)
+            radiation=new Radiation();
+        return radiation;
+    }
+
+    public void setRadiation(Radiation radiation) {
+        this.radiation = radiation;
+    }
+
+    public Client getClient() {
+        if(client==null)
+            client=new Client();
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -60,7 +89,7 @@ public class Reforme implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Reforme[ id=" + id + " ]";
+        return "Reforme{" + "id=" + id + ", numCPS=" + numCPS + '}';
     }
-    
+
 }

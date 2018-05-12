@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InventaireItemViewDlg" widgetVar="InventaireItemViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewInventaireItemTitle}">
+            <h:form id="InventaireItemViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{inventaireItemController.selected != null}">
+                        <h:outputText value="#{bundle.ViewInventaireItemLabel_id}"/>
+                        <h:outputText value="#{inventaireItemController.selected.id}" title="#{bundle.ViewInventaireItemTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewInventaireItemLabel_entiteAdministrative}"/>
+                        <h:outputText value="#{inventaireItemController.selected.entiteAdministrative}" title="#{bundle.ViewInventaireItemTitle_entiteAdministrative}"/>
+                        <h:outputText value="#{bundle.ViewInventaireItemLabel_individu}"/>
+                        <h:outputText value="#{inventaireItemController.selected.individu}" title="#{bundle.ViewInventaireItemTitle_individu}"/>
+                        <h:outputText value="#{bundle.ViewInventaireItemLabel_dateInspection}"/>
+                        <h:outputText value="#{inventaireItemController.selected.dateInspection}" title="#{bundle.ViewInventaireItemTitle_dateInspection}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewInventaireItemLabel_affectationCodeBarre}"/>
+                        <h:outputText value="#{inventaireItemController.selected.affectationCodeBarre}" title="#{bundle.ViewInventaireItemTitle_affectationCodeBarre}"/>
+                        <h:outputText value="#{bundle.ViewInventaireItemLabel_resultInspection}"/>
+                        <h:outputText value="#{inventaireItemController.selected.resultInspection}" title="#{bundle.ViewInventaireItemTitle_resultInspection}"/>
+                        <h:outputText value="#{bundle.ViewInventaireItemLabel_inventaire}"/>
+                        <h:outputText value="#{inventaireItemController.selected.inventaire}" title="#{bundle.ViewInventaireItemTitle_inventaire}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="InventaireItemViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

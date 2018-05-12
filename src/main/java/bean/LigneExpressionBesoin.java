@@ -37,6 +37,36 @@ public class LigneExpressionBesoin implements Serializable {
         this.id = id;
     }
 
+    public double getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(double quantite) {
+        this.quantite = quantite;
+    }
+
+    public Produit getProduit() {
+        if (produit == null) {
+            produit = new Produit();
+        }
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
+    }
+
+    public ExpressionBesoin getExpressionBesoin() {
+        if (expressionBesoin == null) {
+            expressionBesoin = new ExpressionBesoin();
+        }
+        return expressionBesoin;
+    }
+
+    public void setExpressionBesoin(ExpressionBesoin expressionBesoin) {
+        this.expressionBesoin = expressionBesoin;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -59,7 +89,7 @@ public class LigneExpressionBesoin implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.LigneExpressionBesoin[ id=" + id + " ]";
+        return "LigneExpressionBesoin{" + "id=" + id + ", quantite=" + quantite + '}';
     }
-    
+
 }

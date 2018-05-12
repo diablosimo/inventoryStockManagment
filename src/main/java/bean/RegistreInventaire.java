@@ -5,7 +5,9 @@
  */
 package bean;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,6 +40,28 @@ public class RegistreInventaire implements Serializable {
         this.id = id;
     }
 
+    public EntiteAdministrative getEntiteAdministrative() {
+        if (entiteAdministrative == null) {
+            entiteAdministrative = new EntiteAdministrative();
+        }
+        return entiteAdministrative;
+    }
+
+    public void setEntiteAdministrative(EntiteAdministrative entiteAdministrative) {
+        this.entiteAdministrative = entiteAdministrative;
+    }
+
+    public List<LigneRegistreInventaire> getLigneInventaires() {
+        if (ligneInventaires == null) {
+            ligneInventaires = new ArrayList();
+        }
+        return ligneInventaires;
+    }
+
+    public void setLigneInventaires(List<LigneRegistreInventaire> ligneInventaires) {
+        this.ligneInventaires = ligneInventaires;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -62,5 +86,5 @@ public class RegistreInventaire implements Serializable {
     public String toString() {
         return "bean.RegistreInventaire[ id=" + id + " ]";
     }
-    
+
 }

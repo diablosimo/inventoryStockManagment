@@ -6,12 +6,10 @@
 package bean;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -27,12 +25,9 @@ public class EntiteAdministrative implements Serializable {
     private Long id;
     private String nom;
     private String adresse;
-    @OneToMany(mappedBy = "entiteAdministrative")
-    private List<Bureau> bureaus;
     @OneToOne
     private Magasin magasin;
-    @OneToMany(mappedBy = "entiteAdministrative")
-    private List<Magasin> magasins;
+    
 
     public Long getId() {
         return id;
@@ -42,6 +37,32 @@ public class EntiteAdministrative implements Serializable {
         this.id = id;
     }
 
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public Magasin getMagasin() {
+        if (magasin==null)
+            magasin=new Magasin();
+        return magasin;
+    }
+
+    public void setMagasin(Magasin magasin) {
+        this.magasin = magasin;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -64,7 +85,7 @@ public class EntiteAdministrative implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.EntiteAdministrative[ id=" + id + " ]";
+        return "EntiteAdministrative{" + "id=" + id + ", nom=" + nom + ", adresse=" + adresse + '}';
     }
 
 }

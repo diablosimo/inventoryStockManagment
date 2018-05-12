@@ -6,6 +6,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -23,12 +24,6 @@ import javax.persistence.Temporal;
 @Entity
 public class Facture implements Serializable {
 
-    @ManyToOne
-    private FeuilleRegistreMutation feuilleRegistreMutation;
-
-    @OneToMany(mappedBy = "facture")
-    private List<LigneFacture> ligneFactures;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,6 +37,10 @@ public class Facture implements Serializable {
     private Commande commande;
     @ManyToOne
     private Fournisseur fournisseur;
+    @ManyToOne
+    private FeuilleRegistreMutation feuilleRegistreMutation;
+    @OneToMany(mappedBy = "facture")
+    private List<LigneFacture> ligneFactures;
     
     
     public Long getId() {
@@ -52,6 +51,80 @@ public class Facture implements Serializable {
         this.id = id;
     }
 
+    public Date getDateFacture() {
+        if(dateFacture==null)
+            dateFacture=new Date();
+        return dateFacture;
+    }
+
+    public void setDateFacture(Date dateFacture) {
+        this.dateFacture = dateFacture;
+    }
+
+    public String getNumContrat() {
+        return numContrat;
+    }
+
+    public void setNumContrat(String numContrat) {
+        this.numContrat = numContrat;
+    }
+
+    public String getNumMarche() {
+        return numMarche;
+    }
+
+    public void setNumMarche(String numMarche) {
+        this.numMarche = numMarche;
+    }
+
+    public double getMontantTotal() {
+        return montantTotal;
+    }
+
+    public void setMontantTotal(double montantTotal) {
+        this.montantTotal = montantTotal;
+    }
+
+    public Commande getCommande() {
+        if(commande==null)
+            commande=new Commande();
+        return commande;
+    }
+
+    public void setCommande(Commande commande) {
+        this.commande = commande;
+    }
+
+    public Fournisseur getFournisseur() {
+        if(fournisseur==null)
+            fournisseur=new Fournisseur();
+        return fournisseur;
+    }
+
+    public void setFournisseur(Fournisseur fournisseur) {
+        this.fournisseur = fournisseur;
+    }
+
+    public FeuilleRegistreMutation getFeuilleRegistreMutation() {
+        if(feuilleRegistreMutation==null)
+            feuilleRegistreMutation=new FeuilleRegistreMutation();
+        return feuilleRegistreMutation;
+    }
+
+    public void setFeuilleRegistreMutation(FeuilleRegistreMutation feuilleRegistreMutation) {
+        this.feuilleRegistreMutation = feuilleRegistreMutation;
+    }
+
+    public List<LigneFacture> getLigneFactures() {
+        if(ligneFactures==null)
+            ligneFactures=new ArrayList();
+        return ligneFactures;
+    }
+
+    public void setLigneFactures(List<LigneFacture> ligneFactures) {
+        this.ligneFactures = ligneFactures;
+    }
+        
     @Override
     public int hashCode() {
         int hash = 0;
@@ -74,7 +147,9 @@ public class Facture implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Facture[ id=" + id + " ]";
+        return "Facture{" + "id=" + id + ", dateFacture=" + dateFacture + ", numContrat=" + numContrat + ", numMarche=" + numMarche + ", montantTotal=" + montantTotal + '}';
     }
+
+   
     
 }

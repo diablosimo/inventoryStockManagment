@@ -66,7 +66,6 @@ public class Client implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    
 
     @Override
     public int hashCode() {
@@ -90,7 +89,7 @@ public class Client implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Client[ id=" + id + " ]";
+        return "Client{" + "id=" + id + ", nom=" + nom + ", adresse=" + adresse + ", telephone=" + telephone + ", email=" + email + '}';
     }
-    
+
 }

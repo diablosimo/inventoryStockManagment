@@ -23,7 +23,6 @@ public class Provenance implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nom; //A:achat f:fabrication Pa:passage R: recuperation
-    
 
     public Long getId() {
         return id;
@@ -31,6 +30,14 @@ public class Provenance implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     @Override
@@ -55,7 +62,7 @@ public class Provenance implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Provenance[ id=" + id + " ]";
+        return "Provenance{" + "id=" + id + ", nom=" + nom + '}';
     }
-    
+
 }

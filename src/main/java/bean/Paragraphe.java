@@ -6,6 +6,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,13 +22,12 @@ import javax.persistence.OneToMany;
 @Entity
 public class Paragraphe implements Serializable {
 
-    
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nom;
+    private String description;
     @OneToMany(mappedBy = "paragraphe")
     private List<Produit> produits;
     @ManyToOne
@@ -39,6 +39,44 @@ public class Paragraphe implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Produit> getProduits() {
+        if (produits == null) {
+            produits = new ArrayList();
+        }
+        return produits;
+    }
+
+    public void setProduits(List<Produit> produits) {
+        this.produits = produits;
+    }
+
+    public Categorie getCategorie() {
+        if (categorie == null) {
+            categorie = new Categorie();
+        }
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
     }
 
     @Override
@@ -63,7 +101,7 @@ public class Paragraphe implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Paragraphe[ id=" + id + " ]";
+        return "Paragraphe{" + "id=" + id + ", nom=" + nom + '}';
     }
-    
+
 }

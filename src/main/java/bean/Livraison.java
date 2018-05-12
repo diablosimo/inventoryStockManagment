@@ -6,6 +6,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -20,7 +21,6 @@ import javax.persistence.Temporal;
  *
  * @author simob
  */
-
 @Entity
 public class Livraison implements Serializable {
 
@@ -42,6 +42,39 @@ public class Livraison implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<LigneLivraison> getLigneLivraisons() {
+        if (ligneLivraisons == null) {
+            ligneLivraisons = new ArrayList();
+        }
+        return ligneLivraisons;
+    }
+
+    public void setLigneLivraisons(List<LigneLivraison> ligneLivraisons) {
+        this.ligneLivraisons = ligneLivraisons;
+    }
+
+    public Date getDateLivraison() {
+        if (dateLivraison == null) {
+            dateLivraison = new Date();
+        }
+        return dateLivraison;
+    }
+
+    public void setDateLivraison(Date dateLivraison) {
+        this.dateLivraison = dateLivraison;
+    }
+
+    public Commande getCommande() {
+        if (commande == null) {
+            commande = new Commande();
+        }
+        return commande;
+    }
+
+    public void setCommande(Commande commande) {
+        this.commande = commande;
     }
 
     @Override
@@ -68,5 +101,5 @@ public class Livraison implements Serializable {
     public String toString() {
         return "bean.Livraison[ id=" + id + " ]";
     }
-    
+
 }

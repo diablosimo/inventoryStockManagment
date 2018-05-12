@@ -21,8 +21,6 @@ import javax.persistence.OneToMany;
 @Entity
 public class Categorie implements Serializable {
 
-    
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -81,7 +79,7 @@ public class Categorie implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Categorie[ id=" + id + " ]";
+        return "Categorie{" + "id=" + id + ", nom=" + nom + '}';
     }
-    
+
 }

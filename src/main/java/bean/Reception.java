@@ -6,6 +6,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -28,17 +29,38 @@ public class Reception implements Serializable {
     private Long id;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateReception;
-     @OneToMany(mappedBy = "reception")
+    @OneToMany(mappedBy = "reception")
     private List<LigneReception> ligneReceptions;
     // private ExpressionBesoin expressionBesoin;
 
-    
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Date getDateReception() {
+        if (dateReception == null) {
+            dateReception = new Date();
+        }
+        return dateReception;
+    }
+
+    public void setDateReception(Date dateReception) {
+        this.dateReception = dateReception;
+    }
+
+    public List<LigneReception> getLigneReceptions() {
+        if (ligneReceptions == null) {
+            ligneReceptions = new ArrayList();
+        }
+        return ligneReceptions;
+    }
+
+    public void setLigneReceptions(List<LigneReception> ligneReceptions) {
+        this.ligneReceptions = ligneReceptions;
     }
 
     @Override
@@ -65,5 +87,5 @@ public class Reception implements Serializable {
     public String toString() {
         return "bean.Reception[ id=" + id + " ]";
     }
-    
+
 }

@@ -32,6 +32,15 @@ public class Motif implements Serializable {
         this.id = id;
     }
 
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -54,7 +63,7 @@ public class Motif implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Motif[ id=" + id + " ]";
+        return "Motif{" + "id=" + id + ", nom=" + nom + '}';
     }
-    
+
 }

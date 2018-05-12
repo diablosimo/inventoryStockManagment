@@ -21,8 +21,6 @@ import javax.persistence.OneToMany;
 @Entity
 public class Stock implements Serializable {
 
-    
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,10 +33,6 @@ public class Stock implements Serializable {
     private double qte;
     private double qteDef;
     private double seuilAlert;
-    
-    
-    
-    
 
     public Long getId() {
         return id;
@@ -46,6 +40,59 @@ public class Stock implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTypeStock() {
+        return typeStock;
+    }
+
+    public void setTypeStock(String typeStock) {
+        this.typeStock = typeStock;
+    }
+
+    public Magasin getMagasin() {
+        if (magasin == null) {
+            magasin = new Magasin();
+        }
+        return magasin;
+    }
+
+    public void setMagasin(Magasin magasin) {
+        this.magasin = magasin;
+    }
+
+    public Produit getProduit() {
+        if(produit==null)
+            produit=new Produit();
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
+    }
+
+    public double getQte() {
+        return qte;
+    }
+
+    public void setQte(double qte) {
+        this.qte = qte;
+    }
+
+    public double getQteDef() {
+        return qteDef;
+    }
+
+    public void setQteDef(double qteDef) {
+        this.qteDef = qteDef;
+    }
+
+    public double getSeuilAlert() {
+        return seuilAlert;
+    }
+
+    public void setSeuilAlert(double seuilAlert) {
+        this.seuilAlert = seuilAlert;
     }
 
     @Override
@@ -70,7 +117,7 @@ public class Stock implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Stock[ id=" + id + " ]";
+        return "Stock{" + "id=" + id + ", typeStock=" + typeStock + ", qte=" + qte + ", qteDef=" + qteDef + ", seuilAlert=" + seuilAlert + '}';
     }
-    
+
 }

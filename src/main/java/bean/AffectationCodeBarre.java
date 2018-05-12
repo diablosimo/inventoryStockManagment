@@ -22,9 +22,6 @@ import javax.persistence.Temporal;
 @Entity
 public class AffectationCodeBarre implements Serializable {
 
-    @OneToOne(mappedBy = "affectationCodeBarre")
-    private ReformeItem reformeItem;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,6 +33,8 @@ public class AffectationCodeBarre implements Serializable {
     private Date dateCodeBarre;
     @ManyToOne
     private LigneRegistreInventaire ligneRegistreInventaire;
+    @OneToOne(mappedBy = "affectationCodeBarre")
+    private ReformeItem reformeItem;
 
     public Long getId() {
         return id;
@@ -57,8 +56,9 @@ public class AffectationCodeBarre implements Serializable {
     }
 
     public Produit getProduit() {
-        if(produit==null)
-            produit=new Produit();
+        if (produit == null) {
+            produit = new Produit();
+        }
         return produit;
     }
 
@@ -75,8 +75,9 @@ public class AffectationCodeBarre implements Serializable {
     }
 
     public Date getDateCodeBarre() {
-        if(dateCodeBarre==null)
-            dateCodeBarre=new Date();
+        if (dateCodeBarre == null) {
+            dateCodeBarre = new Date();
+        }
         return dateCodeBarre;
     }
 
@@ -85,18 +86,15 @@ public class AffectationCodeBarre implements Serializable {
     }
 
     public LigneRegistreInventaire getLigneRegistreInventaire() {
-        if(ligneRegistreInventaire==null)
-            ligneRegistreInventaire=new LigneRegistreInventaire();
+        if (ligneRegistreInventaire == null) {
+            ligneRegistreInventaire = new LigneRegistreInventaire();
+        }
         return ligneRegistreInventaire;
     }
 
     public void setLigneRegistreInventaire(LigneRegistreInventaire ligneRegistreInventaire) {
         this.ligneRegistreInventaire = ligneRegistreInventaire;
     }
-
-   
-
-    
 
     @Override
     public int hashCode() {
@@ -120,7 +118,9 @@ public class AffectationCodeBarre implements Serializable {
 
     @Override
     public String toString() {
-        return "AffectationCodeBarre{" + "reformeItem=" + reformeItem + ", id=" + id + ", produit=" + produit + ", codeBarre=" + codeBarre + ", dateCodeBarre=" + dateCodeBarre + ", ligneRegistreInventaire=" + ligneRegistreInventaire + '}';
+        return "AffectationCodeBarre{" + "id=" + id + ", codeBarre=" + codeBarre + ", dateCodeBarre=" + dateCodeBarre + '}';
     }
+
+   
 
 }

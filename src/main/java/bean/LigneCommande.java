@@ -28,7 +28,7 @@ public class LigneCommande implements Serializable {
     private Produit produit;
     @ManyToOne
     private Commande commande;
-    
+
     private String description;
 
     public Long getId() {
@@ -37,6 +37,44 @@ public class LigneCommande implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public double getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(double quantite) {
+        this.quantite = quantite;
+    }
+
+    public Produit getProduit() {
+        if (produit == null) {
+            produit = new Produit();
+        }
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
+    }
+
+    public Commande getCommande() {
+        if (commande == null) {
+            commande = new Commande();
+        }
+        return commande;
+    }
+
+    public void setCommande(Commande commande) {
+        this.commande = commande;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
@@ -61,7 +99,7 @@ public class LigneCommande implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.LigneCommande[ id=" + id + " ]";
+        return "LigneCommande{" + "id=" + id + ", quantite=" + quantite + ", description=" + description + '}';
     }
-    
+
 }

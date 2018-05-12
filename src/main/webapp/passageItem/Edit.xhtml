@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PassageItemEditDlg" widgetVar="PassageItemEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPassageItemTitle}">
+            <h:form id="PassageItemEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{passageItemController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPassageItemLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{passageItemController.selected.id}" title="#{bundle.EditPassageItemTitle_id}" />
+                        <p:outputLabel value="#{bundle.EditPassageItemLabel_affectationCodeBarre}" for="affectationCodeBarre" />
+                        <p:selectOneMenu id="affectationCodeBarre" value="#{passageItemController.selected.affectationCodeBarre}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{affectationCodeBarreController.itemsAvailableSelectOne}"
+                                           var="affectationCodeBarreItem"
+                                           itemValue="#{affectationCodeBarreItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditPassageItemLabel_eaCedant}" for="eaCedant" />
+                        <p:selectOneMenu id="eaCedant" value="#{passageItemController.selected.eaCedant}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{entiteAdministrativeController.itemsAvailableSelectOne}"
+                                           var="eaCedantItem"
+                                           itemValue="#{eaCedantItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditPassageItemLabel_utilisateurCedant}" for="utilisateurCedant" />
+                        <p:selectOneMenu id="utilisateurCedant" value="#{passageItemController.selected.utilisateurCedant}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{utilisateurController.itemsAvailableSelectOne}"
+                                           var="utilisateurCedantItem"
+                                           itemValue="#{utilisateurCedantItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{passageItemController.update}" value="#{bundle.Save}" update="display,:PassageItemListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PassageItemEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PassageItemEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

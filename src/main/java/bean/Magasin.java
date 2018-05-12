@@ -6,6 +6,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,14 +30,35 @@ public class Magasin implements Serializable {
     private List<Stock> stocks;
     @ManyToOne
     private EntiteAdministrative entiteAdministrative;
-    
-            
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Stock> getStocks() {
+        if (stocks == null) {
+            stocks = new ArrayList();
+        }
+        return stocks;
+    }
+
+    public void setStocks(List<Stock> stocks) {
+        this.stocks = stocks;
+    }
+
+    public EntiteAdministrative getEntiteAdministrative() {
+        if (entiteAdministrative == null) {
+            entiteAdministrative = new EntiteAdministrative();
+        }
+        return entiteAdministrative;
+    }
+
+    public void setEntiteAdministrative(EntiteAdministrative entiteAdministrative) {
+        this.entiteAdministrative = entiteAdministrative;
     }
 
     @Override
@@ -63,5 +85,5 @@ public class Magasin implements Serializable {
     public String toString() {
         return "bean.Magasin[ id=" + id + " ]";
     }
-    
+
 }

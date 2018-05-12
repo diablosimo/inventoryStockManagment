@@ -37,6 +37,36 @@ public class LigneFacture implements Serializable {
         this.id = id;
     }
 
+    public double getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(double quantite) {
+        this.quantite = quantite;
+    }
+
+    public Produit getProduit() {
+        if (produit == null) {
+            produit = new Produit();
+        }
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
+    }
+
+    public Facture getFacture() {
+        if (facture == null) {
+            facture = new Facture();
+        }
+        return facture;
+    }
+
+    public void setFacture(Facture facture) {
+        this.facture = facture;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -59,7 +89,7 @@ public class LigneFacture implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.LigneFacture[ id=" + id + " ]";
+        return "LigneFacture{" + "id=" + id + ", quantite=" + quantite + '}';
     }
-    
+
 }

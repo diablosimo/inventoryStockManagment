@@ -37,7 +37,6 @@ public class InventaireItem implements Serializable {
     private String resultInspection;
     @ManyToOne
     private Inventaire inventaire;
-    
 
     public Long getId() {
         return id;
@@ -45,6 +44,69 @@ public class InventaireItem implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public EntiteAdministrative getEntiteAdministrative() {
+        if (entiteAdministrative == null) {
+            entiteAdministrative = new EntiteAdministrative();
+        }
+        return entiteAdministrative;
+    }
+
+    public void setEntiteAdministrative(EntiteAdministrative entiteAdministrative) {
+        this.entiteAdministrative = entiteAdministrative;
+    }
+
+    public Utilisateur getIndividu() {
+        if (individu == null) {
+            individu = new Utilisateur();
+        }
+        return individu;
+    }
+
+    public void setIndividu(Utilisateur individu) {
+        this.individu = individu;
+    }
+
+    public Date getDateInspection() {
+        if (dateInspection == null) {
+            dateInspection = new Date();
+        }
+        return dateInspection;
+    }
+
+    public void setDateInspection(Date dateInspection) {
+        this.dateInspection = dateInspection;
+    }
+
+    public AffectationCodeBarre getAffectationCodeBarre() {
+        if (affectationCodeBarre == null) {
+            affectationCodeBarre = new AffectationCodeBarre();
+        }
+        return affectationCodeBarre;
+    }
+
+    public void setAffectationCodeBarre(AffectationCodeBarre affectationCodeBarre) {
+        this.affectationCodeBarre = affectationCodeBarre;
+    }
+
+    public String getResultInspection() {
+        return resultInspection;
+    }
+
+    public void setResultInspection(String resultInspection) {
+        this.resultInspection = resultInspection;
+    }
+
+    public Inventaire getInventaire() {
+        if (inventaire == null) {
+            inventaire = new Inventaire();
+        }
+        return inventaire;
+    }
+
+    public void setInventaire(Inventaire inventaire) {
+        this.inventaire = inventaire;
     }
 
     @Override
@@ -69,7 +131,7 @@ public class InventaireItem implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.InventaireItem[ id=" + id + " ]";
+        return "InventaireItem{" + "id=" + id + ", dateInspection=" + dateInspection + ", resultInspection=" + resultInspection + '}';
     }
-    
+
 }

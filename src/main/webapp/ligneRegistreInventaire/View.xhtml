@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LigneRegistreInventaireViewDlg" widgetVar="LigneRegistreInventaireViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewLigneRegistreInventaireTitle}">
+            <h:form id="LigneRegistreInventaireViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ligneRegistreInventaireController.selected != null}">
+                        <h:outputText value="#{bundle.ViewLigneRegistreInventaireLabel_id}"/>
+                        <h:outputText value="#{ligneRegistreInventaireController.selected.id}" title="#{bundle.ViewLigneRegistreInventaireTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewLigneRegistreInventaireLabel_numOrdre}"/>
+                        <h:outputText value="#{ligneRegistreInventaireController.selected.numOrdre}" title="#{bundle.ViewLigneRegistreInventaireTitle_numOrdre}"/>
+                        <h:outputText value="#{bundle.ViewLigneRegistreInventaireLabel_feuilleRegistreMutation}"/>
+                        <h:outputText value="#{ligneRegistreInventaireController.selected.feuilleRegistreMutation}" title="#{bundle.ViewLigneRegistreInventaireTitle_feuilleRegistreMutation}"/>
+                        <h:outputText value="#{bundle.ViewLigneRegistreInventaireLabel_provenance}"/>
+                        <h:outputText value="#{ligneRegistreInventaireController.selected.provenance}" title="#{bundle.ViewLigneRegistreInventaireTitle_provenance}"/>
+                        <h:outputText value="#{bundle.ViewLigneRegistreInventaireLabel_dateInscription}"/>
+                        <h:outputText value="#{ligneRegistreInventaireController.selected.dateInscription}" title="#{bundle.ViewLigneRegistreInventaireTitle_dateInscription}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewLigneRegistreInventaireLabel_qte}"/>
+                        <h:outputText value="#{ligneRegistreInventaireController.selected.qte}" title="#{bundle.ViewLigneRegistreInventaireTitle_qte}"/>
+                        <h:outputText value="#{bundle.ViewLigneRegistreInventaireLabel_produit}"/>
+                        <h:outputText value="#{ligneRegistreInventaireController.selected.produit}" title="#{bundle.ViewLigneRegistreInventaireTitle_produit}"/>
+                        <h:outputText value="#{bundle.ViewLigneRegistreInventaireLabel_prix}"/>
+                        <h:outputText value="#{ligneRegistreInventaireController.selected.prix}" title="#{bundle.ViewLigneRegistreInventaireTitle_prix}"/>
+                        <h:outputText value="#{bundle.ViewLigneRegistreInventaireLabel_etatObjet}"/>
+                        <h:outputText value="#{ligneRegistreInventaireController.selected.etatObjet}" title="#{bundle.ViewLigneRegistreInventaireTitle_etatObjet}"/>
+                        <h:outputText value="#{bundle.ViewLigneRegistreInventaireLabel_observation}"/>
+                        <h:outputText value="#{ligneRegistreInventaireController.selected.observation}" title="#{bundle.ViewLigneRegistreInventaireTitle_observation}"/>
+                        <h:outputText value="#{bundle.ViewLigneRegistreInventaireLabel_individu}"/>
+                        <h:outputText value="#{ligneRegistreInventaireController.selected.individu}" title="#{bundle.ViewLigneRegistreInventaireTitle_individu}"/>
+                        <h:outputText value="#{bundle.ViewLigneRegistreInventaireLabel_registreInventaire}"/>
+                        <h:outputText value="#{ligneRegistreInventaireController.selected.registreInventaire}" title="#{bundle.ViewLigneRegistreInventaireTitle_registreInventaire}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="LigneRegistreInventaireViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

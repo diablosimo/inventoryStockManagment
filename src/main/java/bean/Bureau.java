@@ -30,8 +30,7 @@ public class Bureau implements Serializable {
     @OneToMany(mappedBy = "bureau")
     private List<Utilisateur> utilisateurs;
     @ManyToOne
-    private EntiteAdministrative entiteAdministrative;
-   
+    private Service service;
 
     public Long getId() {
         return id;
@@ -41,14 +40,15 @@ public class Bureau implements Serializable {
         this.id = id;
     }
 
-    public EntiteAdministrative getEntiteAdministrative() {
-        if(entiteAdministrative==null)
-            entiteAdministrative=new EntiteAdministrative();
-        return entiteAdministrative;
+    public Service getService() {
+        if (service == null) {
+            service = new Service();
+        }
+        return service;
     }
 
-    public void setEntiteAdministrative(EntiteAdministrative entiteAdministrative) {
-        this.entiteAdministrative = entiteAdministrative;
+    public void setService(Service service) {
+        this.service = service;
     }
 
     public int getNumero() {

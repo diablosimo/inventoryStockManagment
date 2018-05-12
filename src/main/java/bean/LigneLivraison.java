@@ -37,6 +37,36 @@ public class LigneLivraison implements Serializable {
         this.id = id;
     }
 
+    public double getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(double quantite) {
+        this.quantite = quantite;
+    }
+
+    public Produit getProduit() {
+        if (produit == null) {
+            produit = new Produit();
+        }
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
+    }
+
+    public Livraison getLivraison() {
+        if (livraison == null) {
+            livraison = new Livraison();
+        }
+        return livraison;
+    }
+
+    public void setLivraison(Livraison livraison) {
+        this.livraison = livraison;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -59,7 +89,7 @@ public class LigneLivraison implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.LigneLivraison[ id=" + id + " ]";
+        return "LigneLivraison{" + "id=" + id + ", quantite=" + quantite + '}';
     }
-    
+
 }

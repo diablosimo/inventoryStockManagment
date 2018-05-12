@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RadiationEditDlg" widgetVar="RadiationEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditRadiationTitle}">
+            <h:form id="RadiationEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{radiationController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditRadiationLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{radiationController.selected.id}" title="#{bundle.EditRadiationTitle_id}" />
+                        <p:outputLabel value="#{bundle.EditRadiationLabel_ligneInventaire}" for="ligneInventaire" />
+                        <p:selectOneMenu id="ligneInventaire" value="#{radiationController.selected.ligneInventaire}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{ligneRegistreInventaireController.itemsAvailableSelectOne}"
+                                           var="ligneInventaireItem"
+                                           itemValue="#{ligneInventaireItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditRadiationLabel_feuilleRegistreMutation}" for="feuilleRegistreMutation" />
+                        <p:selectOneMenu id="feuilleRegistreMutation" value="#{radiationController.selected.feuilleRegistreMutation}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{feuilleRegistreMutationController.itemsAvailableSelectOne}"
+                                           var="feuilleRegistreMutationItem"
+                                           itemValue="#{feuilleRegistreMutationItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditRadiationLabel_motif}" for="motif" />
+                        <p:selectOneMenu id="motif" value="#{radiationController.selected.motif}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{motifController.itemsAvailableSelectOne}"
+                                           var="motifItem"
+                                           itemValue="#{motifItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditRadiationLabel_nbrObjet}" for="nbrObjet" />
+                        <p:inputText id="nbrObjet" value="#{radiationController.selected.nbrObjet}" title="#{bundle.EditRadiationTitle_nbrObjet}" />
+                        <p:outputLabel value="#{bundle.EditRadiationLabel_dateRadiation}" for="dateRadiation" />
+                        <p:calendar id="dateRadiation" pattern="MM/dd/yyyy" value="#{radiationController.selected.dateRadiation}" title="#{bundle.EditRadiationTitle_dateRadiation}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditRadiationLabel_etatObjet}" for="etatObjet" />
+                        <p:selectOneMenu id="etatObjet" value="#{radiationController.selected.etatObjet}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{etatController.itemsAvailableSelectOne}"
+                                           var="etatObjetItem"
+                                           itemValue="#{etatObjetItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{radiationController.update}" value="#{bundle.Save}" update="display,:RadiationListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RadiationEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RadiationEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

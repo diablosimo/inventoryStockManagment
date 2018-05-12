@@ -37,6 +37,36 @@ public class LigneReception implements Serializable {
         this.id = id;
     }
 
+    public double getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(double quantite) {
+        this.quantite = quantite;
+    }
+
+    public Produit getProduit() {
+        if (produit == null) {
+            produit = new Produit();
+        }
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
+    }
+
+    public Reception getReception() {
+        if (reception == null) {
+            reception = new Reception();
+        }
+        return reception;
+    }
+
+    public void setReception(Reception reception) {
+        this.reception = reception;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -59,7 +89,7 @@ public class LigneReception implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.LigneReception[ id=" + id + " ]";
+        return "LigneReception{" + "id=" + id + ", quantite=" + quantite + '}';
     }
-    
+
 }

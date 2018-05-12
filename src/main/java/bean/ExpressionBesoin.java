@@ -6,6 +6,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -43,6 +44,44 @@ public class ExpressionBesoin implements Serializable {
         this.id = id;
     }
 
+    public Date getDateExpressionBesoin() {
+        if(dateExpressionBesoin==null)
+            dateExpressionBesoin=new Date();
+        return dateExpressionBesoin;
+    }
+
+    public void setDateExpressionBesoin(Date dateExpressionBesoin) {
+        this.dateExpressionBesoin = dateExpressionBesoin;
+    }
+
+    public int getRecu() {
+        return recu;
+    }
+
+    public void setRecu(int recu) {
+        this.recu = recu;
+    }
+
+    public Utilisateur getUtilisateur() {
+        if(utilisateur==null)
+            utilisateur=new Utilisateur();
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    public List<LigneExpressionBesoin> getLigneExpressionBesoins() {
+        if(ligneExpressionBesoins==null)
+            ligneExpressionBesoins=new ArrayList();
+        return ligneExpressionBesoins;
+    }
+
+    public void setLigneExpressionBesoins(List<LigneExpressionBesoin> ligneExpressionBesoins) {
+        this.ligneExpressionBesoins = ligneExpressionBesoins;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -65,7 +104,7 @@ public class ExpressionBesoin implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.ExpressionBesoin[ id=" + id + " ]";
+        return "ExpressionBesoin{" + "id=" + id + ", dateExpressionBesoin=" + dateExpressionBesoin + ", recu=" + recu + '}';
     }
 
 }

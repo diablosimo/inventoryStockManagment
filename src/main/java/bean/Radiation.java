@@ -37,9 +37,6 @@ public class Radiation implements Serializable {
     private Date dateRadiation;
     @ManyToOne
     private Etat etatObjet;
-    
-     
-    
 
     public Long getId() {
         return id;
@@ -47,6 +44,69 @@ public class Radiation implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public LigneRegistreInventaire getLigneInventaire() {
+        if (ligneInventaire == null) {
+            ligneInventaire = new LigneRegistreInventaire();
+        }
+        return ligneInventaire;
+    }
+
+    public void setLigneInventaire(LigneRegistreInventaire ligneInventaire) {
+        this.ligneInventaire = ligneInventaire;
+    }
+
+    public FeuilleRegistreMutation getFeuilleRegistreMutation() {
+        if (feuilleRegistreMutation == null) {
+            feuilleRegistreMutation = new FeuilleRegistreMutation();
+        }
+        return feuilleRegistreMutation;
+    }
+
+    public void setFeuilleRegistreMutation(FeuilleRegistreMutation feuilleRegistreMutation) {
+        this.feuilleRegistreMutation = feuilleRegistreMutation;
+    }
+
+    public Motif getMotif() {
+        if (motif == null) {
+            motif = new Motif();
+        }
+        return motif;
+    }
+
+    public void setMotif(Motif motif) {
+        this.motif = motif;
+    }
+
+    public double getNbrObjet() {
+        return nbrObjet;
+    }
+
+    public void setNbrObjet(double nbrObjet) {
+        this.nbrObjet = nbrObjet;
+    }
+
+    public Date getDateRadiation() {
+        if (dateRadiation == null) {
+            dateRadiation = new Date();
+        }
+        return dateRadiation;
+    }
+
+    public void setDateRadiation(Date dateRadiation) {
+        this.dateRadiation = dateRadiation;
+    }
+
+    public Etat getEtatObjet() {
+        if (etatObjet == null) {
+            etatObjet = new Etat();
+        }
+        return etatObjet;
+    }
+
+    public void setEtatObjet(Etat etatObjet) {
+        this.etatObjet = etatObjet;
     }
 
     @Override
@@ -71,7 +131,7 @@ public class Radiation implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Radiation[ id=" + id + " ]";
+        return "Radiation{" + "id=" + id + ", nbrObjet=" + nbrObjet + ", dateRadiation=" + dateRadiation + '}';
     }
-    
+
 }

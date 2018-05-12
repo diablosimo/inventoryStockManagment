@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UtilisateurViewDlg" widgetVar="UtilisateurViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUtilisateurTitle}">
+            <h:form id="UtilisateurViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{utilisateurController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUtilisateurLabel_id}"/>
+                        <h:outputText value="#{utilisateurController.selected.id}" title="#{bundle.ViewUtilisateurTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewUtilisateurLabel_matricule}"/>
+                        <h:outputText value="#{utilisateurController.selected.matricule}" title="#{bundle.ViewUtilisateurTitle_matricule}"/>
+                        <h:outputText value="#{bundle.ViewUtilisateurLabel_nom}"/>
+                        <h:outputText value="#{utilisateurController.selected.nom}" title="#{bundle.ViewUtilisateurTitle_nom}"/>
+                        <h:outputText value="#{bundle.ViewUtilisateurLabel_prenom}"/>
+                        <h:outputText value="#{utilisateurController.selected.prenom}" title="#{bundle.ViewUtilisateurTitle_prenom}"/>
+                        <h:outputText value="#{bundle.ViewUtilisateurLabel_email}"/>
+                        <h:outputText value="#{utilisateurController.selected.email}" title="#{bundle.ViewUtilisateurTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewUtilisateurLabel_password}"/>
+                        <h:outputText value="#{utilisateurController.selected.password}" title="#{bundle.ViewUtilisateurTitle_password}"/>
+                        <h:outputText value="#{bundle.ViewUtilisateurLabel_telephone}"/>
+                        <h:outputText value="#{utilisateurController.selected.telephone}" title="#{bundle.ViewUtilisateurTitle_telephone}"/>
+                        <h:outputText value="#{bundle.ViewUtilisateurLabel_blocked}"/>
+                        <p:selectBooleanCheckbox value="#{utilisateurController.selected.blocked}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewUtilisateurLabel_nbrCnx}"/>
+                        <h:outputText value="#{utilisateurController.selected.nbrCnx}" title="#{bundle.ViewUtilisateurTitle_nbrCnx}"/>
+                        <h:outputText value="#{bundle.ViewUtilisateurLabel_mdpChanged}"/>
+                        <p:selectBooleanCheckbox value="#{utilisateurController.selected.mdpChanged}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewUtilisateurLabel_grade}"/>
+                        <h:outputText value="#{utilisateurController.selected.grade}" title="#{bundle.ViewUtilisateurTitle_grade}"/>
+                        <h:outputText value="#{bundle.ViewUtilisateurLabel_bureau}"/>
+                        <h:outputText value="#{utilisateurController.selected.bureau}" title="#{bundle.ViewUtilisateurTitle_bureau}"/>
+                        <h:outputText value="#{bundle.ViewUtilisateurLabel_typeUtilisateur}"/>
+                        <h:outputText value="#{utilisateurController.selected.typeUtilisateur}" title="#{bundle.ViewUtilisateurTitle_typeUtilisateur}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UtilisateurViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CessionPassageViewDlg" widgetVar="CessionPassageViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCessionPassageTitle}">
+            <h:form id="CessionPassageViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cessionPassageController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCessionPassageLabel_id}"/>
+                        <h:outputText value="#{cessionPassageController.selected.id}" title="#{bundle.ViewCessionPassageTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewCessionPassageLabel_numBultinPassage}"/>
+                        <h:outputText value="#{cessionPassageController.selected.numBultinPassage}" title="#{bundle.ViewCessionPassageTitle_numBultinPassage}"/>
+                        <h:outputText value="#{bundle.ViewCessionPassageLabel_radiation}"/>
+                        <h:outputText value="#{cessionPassageController.selected.radiation}" title="#{bundle.ViewCessionPassageTitle_radiation}"/>
+                        <h:outputText value="#{bundle.ViewCessionPassageLabel_eaCessionnaire}"/>
+                        <h:outputText value="#{cessionPassageController.selected.eaCessionnaire}" title="#{bundle.ViewCessionPassageTitle_eaCessionnaire}"/>
+                        <h:outputText value="#{bundle.ViewCessionPassageLabel_utilisateurCessionnaire}"/>
+                        <h:outputText value="#{cessionPassageController.selected.utilisateurCessionnaire}" title="#{bundle.ViewCessionPassageTitle_utilisateurCessionnaire}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CessionPassageViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

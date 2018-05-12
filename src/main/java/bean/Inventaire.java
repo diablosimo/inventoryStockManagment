@@ -33,7 +33,6 @@ public class Inventaire implements Serializable {
     private CategorieInventaire categorieInventaire;
     @ManyToOne
     private Utilisateur responsable;
-    
 
     public Long getId() {
         return id;
@@ -41,6 +40,48 @@ public class Inventaire implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Date getDateDebut() {
+        if (dateDebut == null) {
+            dateDebut = new Date();
+        }
+        return dateDebut;
+    }
+
+    public void setDateDebut(Date dateDebut) {
+        this.dateDebut = dateDebut;
+    }
+
+    public Date getDateFin() {
+        if (dateFin == null) {
+            dateFin = new Date();
+        }
+        return dateFin;
+    }
+
+    public void setDateFin(Date dateFin) {
+        this.dateFin = dateFin;
+    }
+
+    public CategorieInventaire getCategorieInventaire() {
+        if(categorieInventaire==null)
+            categorieInventaire=new CategorieInventaire();
+        return categorieInventaire;
+    }
+
+    public void setCategorieInventaire(CategorieInventaire categorieInventaire) {
+        this.categorieInventaire = categorieInventaire;
+    }
+
+    public Utilisateur getResponsable() {
+        if(responsable==null)
+            responsable=new Utilisateur();
+        return responsable;
+    }
+
+    public void setResponsable(Utilisateur responsable) {
+        this.responsable = responsable;
     }
 
     @Override
@@ -65,7 +106,7 @@ public class Inventaire implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Inventaire[ id=" + id + " ]";
+        return "Inventaire{" + "id=" + id + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + '}';
     }
-    
+
 }

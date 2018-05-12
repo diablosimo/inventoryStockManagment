@@ -32,6 +32,14 @@ public class TypeUtilisateur implements Serializable {
         this.id = id;
     }
 
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -54,7 +62,7 @@ public class TypeUtilisateur implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.TypeUtilisateur[ id=" + id + " ]";
+        return "TypeUtilisateur{" + "id=" + id + ", nom=" + nom + '}';
     }
-    
+
 }

@@ -6,6 +6,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,9 +21,6 @@ import javax.persistence.OneToMany;
  */
 @Entity
 public class Utilisateur implements Serializable {
-
-    @OneToMany(mappedBy = "utilisateur")
-    private List<ExpressionBesoin> expressionBesoins;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -42,7 +40,9 @@ public class Utilisateur implements Serializable {
     private String grade;
     @ManyToOne
     private Bureau bureau;
-    
+    @OneToMany(mappedBy = "utilisateur")
+    private List<ExpressionBesoin> expressionBesoins;
+
     public Long getId() {
         return id;
     }
@@ -59,7 +59,6 @@ public class Utilisateur implements Serializable {
         this.matricule = matricule;
     }
 
-    
     public String getNom() {
         return nom;
     }
@@ -133,16 +132,37 @@ public class Utilisateur implements Serializable {
     }
 
     public Bureau getBureau() {
-        if(bureau==null)
-            bureau=new Bureau();
+        if (bureau == null) {
+            bureau = new Bureau();
+        }
         return bureau;
     }
 
     public void setBureau(Bureau bureau) {
         this.bureau = bureau;
     }
-    
-    
+
+    public List<ExpressionBesoin> getExpressionBesoins() {
+        if (expressionBesoins == null) {
+            expressionBesoins = new ArrayList();
+        }
+        return expressionBesoins;
+    }
+
+    public void setExpressionBesoins(List<ExpressionBesoin> expressionBesoins) {
+        this.expressionBesoins = expressionBesoins;
+    }
+
+    public TypeUtilisateur getTypeUtilisateur() {
+        if (typeUtilisateur == null) {
+            typeUtilisateur = new TypeUtilisateur();
+        }
+        return typeUtilisateur;
+    }
+
+    public void setTypeUtilisateur(TypeUtilisateur typeUtilisateur) {
+        this.typeUtilisateur = typeUtilisateur;
+    }
 
     @Override
     public int hashCode() {
@@ -166,9 +186,9 @@ public class Utilisateur implements Serializable {
 
     @Override
     public String toString() {
-        return "Utilisateur{" + "expressionBesoins=" + expressionBesoins + ", id=" + id + ", matricule=" + matricule + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", password=" + password + ", telephone=" + telephone + ", blocked=" + blocked + ", nbrCnx=" + nbrCnx + ", mdpChanged=" + mdpChanged + ", typeUtilisateur=" + typeUtilisateur + ", grade=" + grade + ", bureau=" + bureau + '}';
+        return "Utilisateur{" + "id=" + id + ", matricule=" + matricule + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", password=" + password + ", telephone=" + telephone + ", blocked=" + blocked + ", nbrCnx=" + nbrCnx + ", mdpChanged=" + mdpChanged + ", grade=" + grade + '}';
     }
 
-    
-    
+   
+
 }

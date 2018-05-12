@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PassageItemViewDlg" widgetVar="PassageItemViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPassageItemTitle}">
+            <h:form id="PassageItemViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{passageItemController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPassageItemLabel_id}"/>
+                        <h:outputText value="#{passageItemController.selected.id}" title="#{bundle.ViewPassageItemTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewPassageItemLabel_affectationCodeBarre}"/>
+                        <h:outputText value="#{passageItemController.selected.affectationCodeBarre}" title="#{bundle.ViewPassageItemTitle_affectationCodeBarre}"/>
+                        <h:outputText value="#{bundle.ViewPassageItemLabel_eaCedant}"/>
+                        <h:outputText value="#{passageItemController.selected.eaCedant}" title="#{bundle.ViewPassageItemTitle_eaCedant}"/>
+                        <h:outputText value="#{bundle.ViewPassageItemLabel_utilisateurCedant}"/>
+                        <h:outputText value="#{passageItemController.selected.utilisateurCedant}" title="#{bundle.ViewPassageItemTitle_utilisateurCedant}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PassageItemViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

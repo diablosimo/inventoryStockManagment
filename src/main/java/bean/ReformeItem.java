@@ -38,6 +38,37 @@ public class ReformeItem implements Serializable {
         this.id = id;
     }
 
+    public AffectationCodeBarre getAffectationCodeBarre() {
+        if(affectationCodeBarre==null)
+        affectationCodeBarre=new AffectationCodeBarre();
+        return affectationCodeBarre;
+    }
+
+    public void setAffectationCodeBarre(AffectationCodeBarre affectationCodeBarre) {
+        this.affectationCodeBarre = affectationCodeBarre;
+    }
+
+    public EntiteAdministrative getEaCedant() {
+        if(eaCedant==null)
+            eaCedant=new EntiteAdministrative();
+        return eaCedant;
+    }
+
+    public void setEaCedant(EntiteAdministrative eaCedant) {
+        this.eaCedant = eaCedant;
+    }
+
+    public Utilisateur getUtilisateurCedant() {
+        if(utilisateurCedant==null)
+            utilisateurCedant=new Utilisateur();
+        return utilisateurCedant;
+    }
+
+    public void setUtilisateurCedant(Utilisateur utilisateurCedant) {
+        this.utilisateurCedant = utilisateurCedant;
+    }
+    
+
     @Override
     public int hashCode() {
         int hash = 0;

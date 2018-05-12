@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ReformeEditDlg" widgetVar="ReformeEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditReformeTitle}">
+            <h:form id="ReformeEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{reformeController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditReformeLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{reformeController.selected.id}" title="#{bundle.EditReformeTitle_id}" />
+                        <p:outputLabel value="#{bundle.EditReformeLabel_numCPS}" for="numCPS" />
+                        <p:inputText id="numCPS" value="#{reformeController.selected.numCPS}" title="#{bundle.EditReformeTitle_numCPS}" />
+                        <p:outputLabel value="#{bundle.EditReformeLabel_radiation}" for="radiation" />
+                        <p:selectOneMenu id="radiation" value="#{reformeController.selected.radiation}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{radiationController.itemsAvailableSelectOne}"
+                                           var="radiationItem"
+                                           itemValue="#{radiationItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditReformeLabel_client}" for="client" />
+                        <p:selectOneMenu id="client" value="#{reformeController.selected.client}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{clientController.itemsAvailableSelectOne}"
+                                           var="clientItem"
+                                           itemValue="#{clientItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{reformeController.update}" value="#{bundle.Save}" update="display,:ReformeListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ReformeEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ReformeEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

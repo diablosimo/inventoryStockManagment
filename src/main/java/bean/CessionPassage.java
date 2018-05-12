@@ -31,7 +31,6 @@ public class CessionPassage implements Serializable {
     private EntiteAdministrative eaCessionnaire;
     @ManyToOne
     private Utilisateur utilisateurCessionnaire;
-    
 
     public Long getId() {
         return id;
@@ -50,18 +49,20 @@ public class CessionPassage implements Serializable {
     }
 
     public Radiation getRadiation() {
-        if(radiation==null)
-            radiation=new Radiation();
+        if (radiation == null) {
+            radiation = new Radiation();
+        }
         return radiation;
     }
 
     public void setRadiation(Radiation radiation) {
         this.radiation = radiation;
-    }   
+    }
 
     public EntiteAdministrative getEaCessionnaire() {
-        if(eaCessionnaire==null)
-            eaCessionnaire=new EntiteAdministrative();
+        if (eaCessionnaire == null) {
+            eaCessionnaire = new EntiteAdministrative();
+        }
         return eaCessionnaire;
     }
 
@@ -70,19 +71,18 @@ public class CessionPassage implements Serializable {
     }
 
     public Utilisateur getUtilisateurCessionnaire() {
-        if(utilisateurCessionnaire==null)
-            utilisateurCessionnaire=new Utilisateur();
+        if (utilisateurCessionnaire == null) {
+            utilisateurCessionnaire = new Utilisateur();
+        }
         return utilisateurCessionnaire;
     }
 
     public void setUtilisateurCessionnaire(Utilisateur utilisateurCessionnaire) {
         this.utilisateurCessionnaire = utilisateurCessionnaire;
     }
-    
-    
-    
+
     @Override
-    public int hashCode(){
+    public int hashCode() {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
@@ -103,7 +103,7 @@ public class CessionPassage implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.CessionPassage[ id=" + id + " ]";
+        return "CessionPassage{" + "id=" + id + ", numBultinPassage=" + numBultinPassage + '}';
     }
-    
+
 }

@@ -6,6 +6,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,6 +38,28 @@ public class RegistreMutation implements Serializable {
         this.id = id;
     }
 
+    public EntiteAdministrative getEntiteAdministrative() {
+        if (entiteAdministrative == null) {
+            entiteAdministrative = new EntiteAdministrative();
+        }
+        return entiteAdministrative;
+    }
+
+    public void setEntiteAdministrative(EntiteAdministrative entiteAdministrative) {
+        this.entiteAdministrative = entiteAdministrative;
+    }
+
+    public List<FeuilleRegistreMutation> getFeuilleRegistreMutations() {
+        if (feuilleRegistreMutations == null) {
+            feuilleRegistreMutations = new ArrayList();
+        }
+        return feuilleRegistreMutations;
+    }
+
+    public void setFeuilleRegistreMutations(List<FeuilleRegistreMutation> feuilleRegistreMutations) {
+        this.feuilleRegistreMutations = feuilleRegistreMutations;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -61,5 +84,5 @@ public class RegistreMutation implements Serializable {
     public String toString() {
         return "bean.RegistreMutation[ id=" + id + " ]";
     }
-    
+
 }

@@ -87,7 +87,7 @@ public class Commande implements Serializable {
 
     public List<Livraison> getLivraisons() {
         if (livraisons == null) {
-            livraisons=new ArrayList();
+            livraisons = new ArrayList();
         }
         return livraisons;
     }
@@ -118,7 +118,7 @@ public class Commande implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.Commande[ id=" + id + " ]";
+        return "Commande{" + "id=" + id + ", Livre=" + Livre + ", dateCommande=" + dateCommande + '}';
     }
 
 }
