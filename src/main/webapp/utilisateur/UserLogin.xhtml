@@ -18,12 +18,12 @@
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
         <link rel="shortcut icon" href="../AdminLTE-3.0.0-alpha/dist/img/rms.ico"/>
     </h:head>
-        <h:body class="hold-transition login-page login-page" style="background-color: windowframe">
+        <h:body class="hold-transition login-page login-page" style="background-image: url(../AdminLTE-3.0.0-alpha/dist/img/throne.png);background-size: 100% 100%"  >
         <p:growl id="growl" life="3000" />
 
         <div class="login-box">
             <div class="login-logo">
-                <img src="../AdminLTE-3.0.0-alpha/dist/img/rms.jpg" width="100%"/>
+                <img src="../AdminLTE-3.0.0-alpha/dist/img/rms1.jpg" width="100%"/>
             </div>
             <div class="card">
                 <div class="card-body login-card-body">
@@ -39,14 +39,14 @@
                         </div>
                         <div class="row">
                             <div class="col-7">
-                                <p:commandButton action="#{utilisateurController.seConnecter}" value="connexion" class="btn btn-primary" update=":growl" />
+                                <p:commandButton action="#{utilisateurController.seConnecter}" value="#{fr.signIn}" class="btn btn-primary" update=":growl" />
                             </div>
                             <div class="col-4">
-                                <p:commandButton action="#{utilisateurController.seConnecter}" value="annuler" class="btn btn-secondary" />
+                                <p:commandButton action="#{utilisateurController.annuler}" value="#{fr.cancel}" class="btn btn-secondary" />
                             </div>
                         </div>
                         <p class="mb-1">
-                            <p:commandLink value="mot de passe oublié?" />
+                            <p:commandLink value="#{fr.forgottenAccount}" />
                         </p>
                     </h:form>
 

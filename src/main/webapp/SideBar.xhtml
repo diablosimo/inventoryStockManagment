@@ -18,49 +18,35 @@
                         <img src="../AdminLTE-3.0.0-alpha/dist/img/1.png" class="img-circle elevation-2" alt="User Image"/>
                     </div>
                     <div class="info">
-                        <h:outputLabel class="font-weight-bold thead-light " value="#{utilisateurController.selected.nom}-#{utilisateurController.selected.prenom}"/>
+                        <a class="d-block">#{utilisateurController.selected.nom}-#{utilisateurController.selected.prenom}</a>
                     </div>
                 </div>
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item has-treeview">
+                        <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-dashboard"></i>
+                                <i class="nav-icon fa fa-book"></i>
                                 <p>
-                                    Dashboard
+                                    Registre d'ordre
                                     <i class="right fa fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../AdminLTE-3.0.0-alpha/index.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>Dashboard v1</p>
+                                    <a href="../ligneRegistreInventaire/Search.xhtml" class="nav-link">
+                                        <i class="fa fa-search nav-icon"></i>
+                                        <p>Rechercher ligne d'inventaire</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../AdminLTE-3.0.0-alpha/index2.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>Dashboard v2</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../AdminLTE-3.0.0-alpha/index3.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>Dashboard v3</p>
+                                    <a href="../ligneRegistreInventaire/Add.xhtml" class="nav-link">
+                                        <i class="fa fa-plus nav-icon"></i>
+                                        <p>Ajouter une ligne</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="../AdminLTE-3.0.0-alpha/widgets.html" class="nav-link">
-                                <i class="nav-icon fa fa-th"></i>
-                                <p>
-                                    Widgets
-                                    <span class="right badge badge-danger">New</span>
-                                </p>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </nav>
             </div>

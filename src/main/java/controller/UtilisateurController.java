@@ -45,7 +45,7 @@ public class UtilisateurController implements Serializable {
             selected = (Utilisateur) SessionUtil.getConnectedUser();
             switch (res) {
                 case 1:
-                    SessionUtil.redirect("/inventoryStockManagment/faces/utilisateur/Model.xhtml");
+                    SessionUtil.redirect("/inventoryStockManagment/faces/utilisateur/InventoryDashbord.xhtml");
                     break;
                 case 2:
                     //SessionUtil.redirect("/inventoryStockManagment/faces/utilisateur/Model.xhtml");
@@ -56,6 +56,10 @@ public class UtilisateurController implements Serializable {
                 default: break;
             }
         }
+    }
+    
+    public void annuler(){
+        selected=null;
     }
 
     public void seDeconnecter() throws IOException {
