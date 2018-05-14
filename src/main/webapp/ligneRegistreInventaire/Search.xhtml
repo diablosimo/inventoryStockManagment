@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+        <ui:include src="../Head.xhtml"/>
+        <h:body class="hold-transition sidebar-mini" rendered="#{utilisateurController.connectedUser!=null}">
+            <p:growl id="growl" life="3000" />
+            <div class="wrapper">
+                <ui:include src="../NavBar.xhtml" />
+                <ui:include src="../SideBar.xhtml" />
+
+                <!-- start writting page's code -->
+                <div class="content-wrapper">
+                    <section class="content-header">
+                        <div class="container-fluid">
+                            <div class="row mb-2">
+                                <div class="col-sm-6">
+                                    <h1>Rechercher ligne d'inventaire</h1>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right">
+                                        <li class="breadcrumb-item"><a href="../utilisateur/InventoryDashbord.xhtml">Acceuil</a></li>
+                                        <li class="breadcrumb-item active">Rechercher ligne d'inventaire</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content">
+                        <div class="container-fluid">
+                            <h:form>
+                                <div class="card card-default">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Registre...</h3>
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Registre d'ordre</label>
+                                                    <h:selectOneMenu value="#{ligneRegistreInventaireController.selected.registreInventaire}" class="form-control select2 form-control-sm" style="width: 100%;">
+                                                        <f:selectItem itemLabel="--SELECT--" itemValue="#{null}"/>
+                                                        <f:selectItems value="#{registreInventaireController.itemsAvailableSelectOne}" var="item" itemLabel="#{item.id}" itemValue="#{item}"/>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Numero d'ordre</label>
+                                                    <p:inputText value="#{ligneRegistreInventaireController.selected.numOrdre}" class="form-control form-control"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Registre de mutation</label>
+                                                    <p:inputText value="#{ligneRegistreInventaireController.selected.feuilleRegistreMutation}" placeholder="N° de la feuille..." class="form-control form-control"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Provenance</label>
+                                                    <h:selectOneMenu value="#{ligneRegistreInventaireController.selected.provenance}" class="form-control select2" style="width: 100%;">
+                                                        <f:selectItem itemLabel="--SELECT--" itemValue="#{null}"/>
+                                                        <f:selectItems value="#{provenanceController.itemsAvailableSelectOne}" var="item" itemLabel="#{item.nom}" itemValue="#{item}"/>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Individu</label>
+                                                    <h:selectOneMenu value="#{ligneRegistreInventaireController.selected.individu}" class="form-control select2" style="width: 100%;">
+                                                        <f:selectItem itemLabel="--SELECT--" itemValue="#{null}"/>
+                                                        <f:selectItems value="#{utilisateurController.itemsAvailableSelectOne}" var="item" itemLabel="#{item.nom} #{item.prenom}" itemValue="#{item}"/>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label>Date inscrip min</label>
+                                                    <p:calendar styleClass="form-control-sm"  />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label>Date inscrip max</label>
+                                                    <p:calendar styleClass="form-control-sm"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card collapsed-card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Produit...</h3>
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-widget="collapse" value="false"><i class="fa fa-minus"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Categorie</label>
+                                                    <h:selectOneMenu value="#{ligneRegistreInventaireController.selected.produit.paragraphe.categorie}" class="form-control select2 form-control-sm" style="width: 100%;">
+                                                        <f:selectItem itemLabel="--SELECT--" itemValue="#{null}"/>
+                                                        <f:selectItems value="#{categorieController.itemsAvailableSelectOne}" var="item" itemLabel="#{item.nom}" itemValue="#{item}"/>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Paragraphe</label>
+                                                    <h:selectOneMenu value="#{ligneRegistreInventaireController.selected.produit.paragraphe}" class="form-control select2 form-control-sm" style="width: 100%;">
+                                                        <f:selectItem itemLabel="--SELECT--" itemValue="#{null}"/>
+                                                        <f:selectItems     var="item" itemLabel="#{item.nom}" itemValue="#{item}"/>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Produit</label>
+                                                    <h:selectOneMenu value="#{ligneRegistreInventaireController.selected.produit}" class="form-control select2 form-control-sm" style="width: 100%;">
+                                                        <f:selectItem itemLabel="--SELECT--" itemValue="#{null}"/>
+                                                        <f:selectItems     var="item" itemLabel="#{item.libelle}" itemValue="#{item}"/>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Code à barre</label>
+                                                    <p:inputText value="#{ligneRegistreInventaireController.selected}" placeholder="code à barre..." class="form-control form-control"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Etat</label>
+                                                    <p:inputText value="#{ligneRegistreInventaireController.selected.etatObjet}" placeholder="l'etat du produit..." class="form-control form-control"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Montant min</label>
+                                                    <p:inputText value="#{ligneRegistreInventaireController.selected.etatObjet}" placeholder="montant total min..." class="form-control form-control"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Montant max</label>
+                                                    <p:inputText value="#{ligneRegistreInventaireController.selected.etatObjet}" placeholder="montant total max..." class="form-control form-control"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Quantité min</label>
+                                                    <p:inputText value="#{ligneRegistreInventaireController.selected.etatObjet}" placeholder="Quantité min..." class="form-control form-control"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>quantité max</label>
+                                                    <p:inputText value="#{ligneRegistreInventaireController.selected.etatObjet}" placeholder="Quantité max..." class="form-control form-control"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row">
+
+                                        <div class="col-md-7"/>
+                                        <div class="col-md-3">
+                                            <p:commandButton value="Rechercher" class="btn btn btn-block btn-primary btn-lg"></p:commandButton>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p:commandButton value="Annuler" class="btn btn-block btn-default btn-lg"></p:commandButton>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-default">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Resultat...</h3>
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-widget="collapse" value="false"><i class="fa fa-minus"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h:form>
+                                            <h:dataTable value="#{ligneRegistreInventaireController.items}" var="item" rows="10"
+                                                         class="table table-bordered table-striped" >
+                                                <p:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="N°d'ordre"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.numOrdre}"/>
+                                                </p:column>
+                                                <p:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="N° mutation"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.feuilleRegistreMutation}"/>
+                                                </p:column>
+                                                <p:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Provenance"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.provenance}"/>
+                                                </p:column>
+                                                <p:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Date d'inscription"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.dateInscription}">
+                                                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                                                    </h:outputText>
+                                                </p:column>
+                                                <p:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Quantité"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.qte}"/>
+                                                </p:column>
+                                                <p:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Produit"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.produit}"/>
+                                                </p:column>
+                                                <p:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Prix"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.prix}"/>
+                                                </p:column>
+                                                <p:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Etat"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.etatObjet}"/>
+                                                </p:column>
+                                                <p:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Observation"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.observation}"/>
+                                                </p:column>
+                                                <p:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Individu"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.individu.nom} #{item.individu.prenom}"/>
+                                                </p:column>
+                                            </h:dataTable>
+                                        </h:form>
+                                        <div class="row">
+                                        </div>
+                                    </div>
+                                </div>
+                            </h:form>
+                        </div>
+                    </section>
+
+
+                </div>
+                <ui:include src="../Footer.xhtml"/>
+                <aside class="control-sidebar control-sidebar-dark"></aside>
+            </div>
+            <ui:include src="../Scripts.xhtml"/>
+        </h:body>
+    </ui:composition>
+</html>
+
+
